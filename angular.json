@@ -5,12 +5,7 @@
   "projects": {
     "app": {
       "projectType": "application",
-      "schematics": {
-        "@ionic/angular-toolkit:page": {
-          "styleext": "scss",
-          "standalone": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -29,6 +24,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app:build:production"
+              "browserTarget": "app:build:production"
             },
             "development": {
-              "buildTarget": "app:build:development"
+              "browserTarget": "app:build:development"
             },
             "ci": {
               "progress": false
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "app:build"
+            "browserTarget": "app:build"
           }
         },
         "test": {
@@ -104,6 +104,11 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
@@ -119,7 +124,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
@@ -129,7 +137,7 @@
     "schematicCollections": [
       "@ionic/angular-toolkit"
     ],
-    "analytics": "7116f075-64cd-4d1f-8a5c-6d1deecfa26d"
+    "analytics": "83309bd8-204d-4b9e-96aa-b7301bd3329b"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
@@ -137,12 +145,6 @@
     },
     "@ionic/angular-toolkit:page": {
       "styleext": "scss"
-    },
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
     }
   }
 }
