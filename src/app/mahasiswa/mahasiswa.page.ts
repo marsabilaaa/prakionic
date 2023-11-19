@@ -14,6 +14,7 @@ export class MahasiswaPage implements OnInit {
    }
 
   ngOnInit() {
+    
     this.getMahasiswa();
     }
     getMahasiswa() {
@@ -95,5 +96,6 @@ export class MahasiswaPage implements OnInit {
             }
             })
             }
-            
+    
   }
+  
